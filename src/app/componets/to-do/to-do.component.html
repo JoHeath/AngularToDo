@@ -1,0 +1,15 @@
+<body>
+<h1>To Do List:</h1>
+<div *ngIf="displayMessage()">
+<p *ngFor="let t of listName">{{t.task}}
+    Completed: {{t.completed}} <button *ngIf="t.completed==false" (click)="completeTask(t)"> Not Done</button>
+    <button *ngIf="t.completed==true" (click)="completeTask(t)">Done</button> &nbsp;   
+    <button (click)="removeTask(t)">x</button>
+</p>
+</div>
+<h1 *ngIf="!displayMessage()">Congratulations! You've completed all tasks.</h1>
+<h3>Add Task</h3>
+<input type="text" [(ngModel)]="list.task"/>
+<button (click)="addTask()">Add Task</button>
+
+</body>
